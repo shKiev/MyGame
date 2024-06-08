@@ -49,4 +49,4 @@ while playing:
 
     player_rect = player_rect.move(player_speed)
 
-    pygame.display.flip()              
+    pygame.display.flip()             #look at *flip lib in pygame 
