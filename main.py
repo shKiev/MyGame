@@ -47,7 +47,7 @@ def create_bonus():
 CREATE_ENEMY = pygame.USEREVENT + 1
 pygame.time.set_timer(CREATE_ENEMY, 1500)
 
-CREATE_BONUS = CREATE_ENEMY + 1
+CREATE_BONUS = pygame.USEREVENT + 2
 pygame.time.set_timer(CREATE_BONUS, 3000)
 
 enemies = []
@@ -65,7 +65,7 @@ while playing:
         if event.type == CREATE_ENEMY:
             enemies.append(create_enemy())
         if event.type == CREATE_BONUS:
-            enemies.append(create_bonus())
+            bonuses.append(create_bonus())
 
     main_display.fill(COLOR_BLACK)
 
@@ -100,6 +100,6 @@ while playing:
             enemies.pop(enemies.index(enemy))
 
     for bonus in bonuses:
-        if bonus[1].bottom > HEIGHT:  #cant understood how to kill bonus 
+        if bonus[1].bottom >= HEIGHT:  #cant understood how to kill bonus 
             bonuses.pop(bonuses.index(bonus))  #look at that rule
         
