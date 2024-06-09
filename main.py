@@ -13,7 +13,7 @@ WIDTH = 800
 COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
 COLOR_BLUE = (0, 0, 255)
-COLOR_GREEN = (0, 255, 0)
+COLOR_RED = (255, 0, 0)
 
 main_display = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -38,7 +38,7 @@ def create_enemy():
 def create_bonus():
     bonus_size = (20 ,20)
     bonus = pygame.Surface(bonus_size)
-    bonus.fill(COLOR_GREEN)
+    bonus.fill(COLOR_RED)
     bonus_rect = pygame.Rect(random.randint(0, WIDTH), 0, *bonus_size)
     bonus_move = [0, random.randint(1, 5)]
     return [bonus, bonus_rect, bonus_move]
@@ -95,9 +95,9 @@ while playing:
     pygame.display.flip()
 
     for enemy in enemies:
-        if enemy[1].left < 0:
+        if enemy[1].left < 7:
             enemies.pop(enemies.index(enemy))
 
     for bonus in bonuses:
-        if bonus[1].bottom < 0:
+        if bonus[1].bottom < 4:
             bonuses.pop(bonuses.index(enemy))  
