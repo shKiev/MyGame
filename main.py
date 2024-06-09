@@ -56,7 +56,7 @@ bonuses = []
 playing = True
 
 while playing:
-    FPS.tick(120)
+    FPS.tick(350)
 
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -76,10 +76,10 @@ while playing:
     if keys[K_RIGHT] and player_rect.right < WIDTH:
         player_rect = player_rect.move(player_move_right)
 
-    if keys[K_UP] and player_rect.top < HEIGHT:
+    if keys[K_UP] and player_rect.top > 0:                  #change coordinates for top (coz it need be >0, not HEIGHT)
         player_rect = player_rect.move(player_move_up)
 
-    if keys[K_LEFT] and player_rect.left < WIDTH:
+    if keys[K_LEFT] and player_rect.left > 0:                #also as for top, coz left was start doc in 0, no in WIDTH
         player_rect = player_rect.move(player_move_left)
 
     for  enemy in enemies:
