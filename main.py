@@ -57,7 +57,7 @@ bonuses = []
 playing = True
 
 while playing:
-    FPS.tick(350)
+    FPS.tick(120)
 
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -96,9 +96,10 @@ while playing:
     pygame.display.flip()
 
     for enemy in enemies:
-        if enemy[1].left < 7:
+        if enemy[1].left < 0:
             enemies.pop(enemies.index(enemy))
 
     for bonus in bonuses:
-        if bonus[1].bottom < 4:
-            bonuses.pop(bonuses.index(enemy))  
+        if bonus[1].bottom > HEIGHT:  #cant understood how to kill bonus 
+            bonuses.pop(bonuses.index(bonus))  #look at that rule
+        
